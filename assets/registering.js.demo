@@ -1,0 +1,9 @@
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js', {
+    scope: '/app'
+  }).then(registration => {
+    // ✅
+  }).catch(function(err) {
+    // ❌
+  });
+}
