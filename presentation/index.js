@@ -34,6 +34,7 @@ const images = {
   goal: require('../assets/goal.jpg'),
   onion: require('../assets/onion.jpg'),
   underground: require('../assets/busy-metro.jpg'),
+  undergroundHappy: require('../assets/busy-metro-happy.jpg'),
   offline: require('../assets/offline.png'),
   swLifecycle: require('../assets/sw-lifecycle.png'),
   applePie: require('../assets/static-apple-pie.png')
@@ -247,6 +248,12 @@ export default class Presentation extends React.Component {
               { loc: [28, 29], title: 'Save the request & repsonse', note: 'like cache.addAll' },
               { loc: [30, 31], title: 'Return the result' },
             ]}/>
+
+          <Slide transition={["Slide"]}>
+            <video controls src={require('file!../assets/Housing-Progressive-Loading.mp4')} style={{height: '70vh'}}></video>
+          </Slide>
+
+          <Slide transition={["slide"]} bgImage={img('undergroundHappy')}></Slide>
 
         </Deck>
       </Spectacle>
