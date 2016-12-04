@@ -37,7 +37,9 @@ const images = {
   undergroundHappy: require('../assets/busy-metro-happy.jpg'),
   offline: require('../assets/offline.png'),
   swLifecycle: require('../assets/sw-lifecycle.png'),
-  applePie: require('../assets/static-apple-pie.png')
+  applePie: require('../assets/static-apple-pie.png'),
+  buildingBlocks: require('../assets/Happy-kid-playing-toy-blocks.jpg'),
+  lighthouse: require('../assets/lighthouse.png')
 };
 
 const img = (name) => images[name].replace('/', '');
@@ -64,7 +66,7 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="primary" notes="You can even put notes on your slide. How awesome is that?">
+          <Slide transition={["slide"]} bgColor="primary">
 
             <Layout>
               <Fill>
@@ -82,8 +84,7 @@ export default class Presentation extends React.Component {
 
           </Slide>
 
-          <Slide transition={["slide"]} bgImage={images.goal.replace('/', '')}>
-          </Slide>
+          <Slide transition={["slide"]} bgImage={images.goal.replace('/', '')}></Slide>
 
           <Slide transition={["slide"]}>
             <Heading fit size={2}>
@@ -254,6 +255,56 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["slide"]} bgImage={img('undergroundHappy')}></Slide>
+
+          <Slide transition={["slide"]} bgImage={img('buildingBlocks')}></Slide>
+
+          <Slide transition={["Slide"]}>
+            <Heading>sw-precache</Heading>
+          </Slide>
+
+          <Slide transition={["Slide"]}>
+            <Heading>sw-toolbox</Heading>
+          </Slide>
+
+          <Slide transition={["slide"]}>
+            <CodePane
+              lang="js"
+              source={require("raw!../assets/service-worker-toolbox.js.demo")}
+              margin="20px auto"
+            />
+          </Slide>
+
+          <Slide transition={["Slide"]}>
+            <Heading>Lighthouse</Heading>
+          </Slide>
+
+          <Slide transition={["Slide"]}>
+            <Image src={images.lighthouse.replace("/", "")} width="100%" />
+          </Slide>
+
+          <Slide transition={["slide"]} bgImage={images.goal.replace('/', '')}></Slide>
+
+          <Slide transition={["Slide"]}>
+            <Heading>Thank you!</Heading>
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="primary">
+
+            <Layout>
+              <Fill>
+                <List>
+                  <ListItem>Jilles Soeters</ListItem>
+                  <ListItem>Developer Expert at Google</ListItem>
+                  <ListItem>Front-end developer at Xebia</ListItem>
+                  <Text>Tweets @jilles, blogs @ jilles.me</Text>
+                </List>
+              </Fill>
+              <Fit>
+                  <Image src={images.me.replace("/", "")} width="400px" />
+              </Fit>
+            </Layout>
+
+          </Slide>
 
         </Deck>
       </Spectacle>

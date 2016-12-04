@@ -1,0 +1,12 @@
+importScripts('node_modules/sw-toolbox/sw-toolbox.js');
+
+toolbox.precache([
+  '/',
+  'about.html',
+  'script.js',
+  'style.css'
+]);
+
+toolbox.router.default = toolbox.networkFirst;
+
+toolbox.router.get('/*', toolbox.cacheFirst);
