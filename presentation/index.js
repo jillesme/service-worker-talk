@@ -160,7 +160,7 @@ export default class Presentation extends React.Component {
             <Image src={images.applePie} height="600px" />
           </Slide>
 
-          <Slide transition={["slide"]} bgImage={images.onion.replace('/', '')}></Slide>
+          <Slide transition={["slide"]} bgImage={images.onion.replace('/', '')} notes="The ApplicationCache spec is like an onion: it has many many layers, and as you peel through them you’ll be reduced to tears."></Slide>
 
           <Slide transition={["slide"]} bgColor="tertiary">
             <Heading fit size={2} textColor="primary">
