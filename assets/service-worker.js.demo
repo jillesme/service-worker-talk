@@ -1,0 +1,27 @@
+this.addEventListener('install', ev => {
+  ev.waitUntil(
+    caches.open('static-file-cache-v1')
+      .then(cache => {
+        return cache.addAll([
+          '/',
+          'about.html',
+          'script.js',
+          'style.css'
+        ]);
+      })
+  );
+})
+
+this.addEventListener('fetch', ev => {
+  ev.respondWith(
+    caches.match(ev.request)
+      .then(response => {
+        if (response) {
+          return response;
+        }
+
+        return fetch(ev.request);
+      }
+    )
+  );
+})

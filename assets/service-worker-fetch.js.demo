@@ -1,0 +1,36 @@
+this.addEventListener('install', ev => {
+  ev.waitUntil(
+    caches.open('static-file-cache-v1')
+      .then(cache => {
+        return cache.addAll([
+          '/',
+          'about.html',
+          'script.js',
+          'style.css'
+        ]);
+      })
+  );
+})
+
+this.addEventListener('fetch', function (ev) {
+  ev.respondWith(
+    caches.match(ev.request)
+      .then(function (response) {
+        if (response) {
+          return response;
+        }
+
+        // return fetch(ev.request);
+
+        var req = ev.request.clone();
+        return fetch(ev.request).then(function (fetchResponse) {
+          var res = fetchResponse.clone();
+          caches.open('user-request-cache').then(function (cache) {
+            cache.put(req, res);
+          });
+          return fetchResponse;
+        });
+      }
+    )
+  );
+});

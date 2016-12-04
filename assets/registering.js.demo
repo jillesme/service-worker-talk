@@ -3,7 +3,7 @@ if ('serviceWorker' in navigator) {
     scope: '/app'
   }).then(registration => {
     // ✅
-  }).catch(function(err) {
+  }).catch(err => {
     // ❌
   });
 }
